@@ -1,0 +1,2 @@
+class Jury
+end
