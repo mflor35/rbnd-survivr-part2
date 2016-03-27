@@ -4,7 +4,7 @@ class Tribe
     def initialize(options={})
         @name = options[:name] if :name != nil
         @members = options[:members] if :members != nil
-        puts "The members of #{name} are: "
+        puts "The members of #{name} are: ".light_blue
         @members.each do |member|
             puts "#{member.name}"
         end
