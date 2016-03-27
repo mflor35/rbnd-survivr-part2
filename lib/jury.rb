@@ -1,6 +1,5 @@
 class Jury
     attr_accessor :members
-    :votes
     def initialize
         @members = []
         @votes = {}
@@ -18,19 +17,20 @@ class Jury
         members.each do |member|
             finalist = finalists[rand(2)]
             @votes[finalist] += 1
-            puts "#{member} #{finalist}"
+            puts "#{member} voted for #{finalist}"
         end
         @votes
     end
 
     def report_votes(votes)
         votes.each do |key, value|
-            puts "#{key} #{value}"
+            puts "#{key}: #{value}"
         end
     end
 
     def announce_winner(votes)
-        votes.max_by{|finalist,value| value}[0]
+      winner = votes.max_by{|finalist,value| value}[0]
+      puts "#{winner} is the WINNER!"
     end
 
 end

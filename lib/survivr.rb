@@ -19,16 +19,35 @@ require_relative "jury"
 
 
 #This is where you will write your code for the three phases
+# In this phase tribes compete 8 times for the immunity challenge
 def phase_one
-    8
+  puts "Phase One"
+  8.times do |round|
+    not_immune = @borneo.immunity_challenge
+    disqualified = not_immune.tribal_council
+    not_immune.members.delete(disqualified)
+    puts "Eliminated Candidate: #{disqualified.name}"
+  end
 end
 
 def phase_two
-    3
+  puts "Phase Two"
+  3.times do |round|
+    immune = @borneo.individual_immunity_challenge
+    disqualified = @merge_tribe.tribal_council(immune: immune)
+    @merge_tribe.members.delete(disqualified)
+    puts "Eliminated Candidate: #{disqualified.name}"
+  end
 end
 
 def phase_three
-    7
+  puts "Phase Three"
+  7.times do |round|
+    immune = @borneo.individual_immunity_challenge
+    disqualified = @merge_tribe.tribal_council(immune: immune)
+    @jury.members << disqualified
+    puts "Eliminated Cadidate: #{disqualified.name}"
+  end
 end
 
 
