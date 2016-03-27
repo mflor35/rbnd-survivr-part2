@@ -1,3 +1,4 @@
+require 'colorizr'
 class Game
     attr_accessor :tribes
     def initialize(tribe_a, tribe_b)
@@ -24,6 +25,6 @@ class Game
     end
 
     def individual_immunity_challenge
-        @tribes[1].members.sample
+        @tribes.sample.members.sample
     end
 end

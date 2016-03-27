@@ -67,4 +67,5 @@ phase_three #7 elminiations become jury members
 finalists = @merge_tribe.members #set finalists
 vote_results = @jury.cast_votes(finalists) #Jury members report votes
 @jury.report_votes(vote_results) #Jury announces their votes
-@jury.announce_winner(vote_results) #Jury announces final winner
+print "WINNER: "
+puts @jury.announce_winner(vote_results).name.yellow #Jury announces final winner
